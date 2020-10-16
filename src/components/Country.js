@@ -41,7 +41,7 @@ function Country({
 	return (
 		<CountryStyle>
 			<figure className="image">
-				<img src={flag} alt=""/>
+				<img loading="lazy" src={flag} alt={name} />
 			</figure>
 			<div className="details">
 				<h2 className="details-titles">{name}</h2>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Country from './Country';
 
@@ -13,25 +13,35 @@ const CountryListStyled = styled.div`
 `
 
 function CountryList() {
+	const [countryList, setCountryList] = useState([]);
 	useEffect(() => {
-
+		(async function () {
+			try {
+				const request = await fetch('https://restcountries.eu/rest/v2/all');
+				const data = await request.json();
+				setCountryList(data);
+				console.log(data[0])
+			} catch(err) {
+				console.error(err);
+			}
+		})()
 	},[])
 	return (
 		<CountryListStyled>
-			<Country
-					flag="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/200px-Flag_of_Colombia.svg.png"
-					name="Colombia"
-					population={12354}
-					region="America"
-					capital="Bogotá"
-			/>
-			<Country
-					flag="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/200px-Flag_of_Colombia.svg.png"
-					name="Colombia"
-					population={12354}
-					region="America"
-					capital="Bogotá"
-			/>
+			{
+				countryList.map(({flag, name, population, region, capital, numericCode}) => {
+					return (
+						<Country
+								flag={flag}
+								name={name}
+								population={population}
+								region={region}
+								capital={capital}
+								key={numericCode}
+						/>
+					)
+				})
+			}
 		</CountryListStyled>
 	)
 }
