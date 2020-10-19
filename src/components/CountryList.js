@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import Country from './Country';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCountryList }  from '../actions/index';
 
 const CountryListStyled = styled.div`
 	display: grid;
@@ -13,14 +15,18 @@ const CountryListStyled = styled.div`
 `
 
 function CountryList() {
-	const [countryList, setCountryList] = useState([]);
+	const dispatch = useDispatch();
+	const countryList = useSelector((state) => state.countryList);
+
 	useEffect(() => {
 		(async function () {
 			try {
-				const request = await fetch('https://restcountries.eu/rest/v2/all');
-				const data = await request.json();
-				setCountryList(data);
-				console.log(data[0])
+				const API = `https://restcountries.eu/rest/v2/all`;
+				const request = await fetch(API);
+				const list = await request.json();
+				dispatch(setCountryList(list));
+				// setCountryList(list);
+				console.log(list.length)
 			} catch(err) {
 				console.error(err);
 			}
