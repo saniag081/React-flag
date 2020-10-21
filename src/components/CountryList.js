@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Country from './Country';
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +17,7 @@ const CountryListStyled = styled.div`
 function CountryList() {
 	const dispatch = useDispatch();
 	const countryList = useSelector((state) => state.countryList);
+	const countryName = useSelector((state) => state.countryName);
 
 	useEffect(() => {
 		(async function () {
@@ -25,8 +26,6 @@ function CountryList() {
 				const request = await fetch(API);
 				const list = await request.json();
 				dispatch(setCountryList(list));
-				// setCountryList(list);
-				console.log(list.length)
 			} catch(err) {
 				console.error(err);
 			}
@@ -34,7 +33,17 @@ function CountryList() {
 	},[])
 	return (
 		<CountryListStyled>
-			{
+			{ countryName.length > 0 ?
+				countryName.map(({ flag, name, population, region, capital, numericCode}) => {
+					return (<Country
+								flag={flag}
+								name={name}
+								population={population}
+								region={region}
+								capital={capital}
+								key={numericCode}
+						/>)
+				}):
 				countryList.map(({flag, name, population, region, capital, numericCode}) => {
 					return (
 						<Country

@@ -4,3 +4,17 @@ export function setCountryList(payload) {
 		payload: payload
 	}
 }
+
+export function getCountryListRegion(payload) {
+	return {
+		type: 'GET_COUNTRY_LIST_REGION',
+		payload: payload
+	}
+}
+
+export function getContryByName(payload) {
+	return {
+		type: 'GET_COUNTRY_BY_NAME',
+		payload: payload
+	}
+}
