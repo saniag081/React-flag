@@ -26,6 +26,7 @@ function CountryList() {
 				const request = await fetch(API);
 				const list = await request.json();
 				dispatch(setCountryList(list));
+				// console.log(list);
 			} catch(err) {
 				console.error(err);
 			}
