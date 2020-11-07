@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
-import styled from 'styled-components';
-import Country from './Country';
-import { useSelector, useDispatch } from 'react-redux';
-import { setCountryList }  from '../actions/index';
+import React, {useEffect} from 'react'
+import styled from 'styled-components'
+import Country from './Country'
+import { useSelector, useDispatch } from 'react-redux'
+import { setCountryList }  from '../actions/index'
 
 const CountryListStyled = styled.div`
 	display: grid;
@@ -16,8 +16,9 @@ const CountryListStyled = styled.div`
 
 function CountryList() {
 	const dispatch = useDispatch();
-	const countryList = useSelector((state) => state.countryList);
-	const countryName = useSelector((state) => state.countryName);
+	const countryList = useSelector((state) => state.countryList)
+	const countryName = useSelector((state) => state.countryName)
+	const countryListRegion = useSelector((state) => state.countryListRegion)
 
 	useEffect(() => {
 		(async function () {

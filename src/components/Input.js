@@ -6,8 +6,10 @@ const InputStyled = Styled.label`
 	align-items: center;
 	padding: 0 1rem;
 	box-shadow: 0 2px 9px 0 rgba(0,0,0,.08);
-	margin-bottom: 1rem;
+	margin-bottom: 40px;
+	padding-right: 0;
 	border-radius: 5px;
+	background: #ffF;
 	.header-input{
 		width: 100%;
 		margin-left: .8rem;
