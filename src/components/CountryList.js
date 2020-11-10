@@ -16,9 +16,20 @@ const CountryListStyled = styled.div`
 
 function CountryList() {
 	const dispatch = useDispatch();
-	const countryList = useSelector((state) => state.countryList)
+	// const countryList = useSelector((state) => state.countryList)
 	const countryName = useSelector((state) => state.countryName)
-	const countryListRegion = useSelector((state) => state.countryListRegion)
+	const countryList = useSelector((state) => {
+		if (Array.isArray(state.countryListRegion) && state.countryListRegion.length > 0) {
+			if (countryName.length > 0) {
+				return countryName
+			} else {
+				return state.countryListRegion
+			}
+		}
+		return state.countryList
+	})
+
+
 
 	useEffect(() => {
 		(async function () {
@@ -35,29 +46,17 @@ function CountryList() {
 	},[])
 	return (
 		<CountryListStyled>
-			{ countryName.length > 0 ?
-				countryName.map(({ flag, name, population, region, capital, numericCode}) => {
-					return (<Country
-								flag={flag}
-								name={name}
-								population={population}
-								region={region}
-								capital={capital}
-								key={numericCode}
-						/>)
-				}):
-				countryList.map(({flag, name, population, region, capital, numericCode}) => {
-					return (
-						<Country
-								flag={flag}
-								name={name}
-								population={population}
-								region={region}
-								capital={capital}
-								key={numericCode}
-						/>
-					)
-				})
+			{
+				countryList.map(({ flag, name, population, region, capital, numericCode }) => (
+					<Country
+						flag={flag}
+						name={name}
+						population={population}
+						region={region}
+						capital={capital}
+						key={numericCode}
+					/>
+				))
 			}
 		</CountryListStyled>
 	)

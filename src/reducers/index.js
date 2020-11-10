@@ -10,9 +10,14 @@ function reducer(stado, action) {
 			)
 			return {...stado, countryListRegion: countryListRegion}
 		}
-		case 'GET_COUNTRY_BY_NAME':{
-			const newContryList = stado.countryList;
-			const getCountry = newContryList.filter(
+		case 'GET_COUNTRY_BY_NAME': {
+			let list
+			if (stado.countryListRegion !== '') {
+				list = stado.countryListRegion
+			} else {
+				list = stado.countryList
+			}
+			const getCountry = list.filter(
 				(country) => country.name.includes(action.payload)
 			)
 			return {...stado, countryName: getCountry}

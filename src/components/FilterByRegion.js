@@ -23,6 +23,7 @@ function Region() {
 
 	return (
 		<FilterStyled onChange={handleGetRegion}>
+			<option  value="" >Filter by region</option>
 			<option  value="Americas" >America</option>
 			<option value="Europe" >Europa</option>
 			<option value="Asia" >Asia</option>
