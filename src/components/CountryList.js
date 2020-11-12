@@ -19,6 +19,10 @@ function CountryList() {
 	// const countryList = useSelector((state) => state.countryList)
 	const countryName = useSelector((state) => state.countryName)
 	const countryList = useSelector((state) => {
+		return stateRender(state)
+	})
+
+	function stateRender(state) {
 		if (Array.isArray(state.countryListRegion) && state.countryListRegion.length > 0) {
 			if (countryName.length > 0) {
 				return countryName
@@ -26,10 +30,12 @@ function CountryList() {
 				return state.countryListRegion
 			}
 		}
-		return state.countryList
-	})
-
-
+		if (countryName.length > 0) {
+			return countryName
+		} else {
+			return state.countryList
+		}
+	}
 
 	useEffect(() => {
 		(async function () {

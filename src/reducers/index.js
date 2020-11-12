@@ -12,7 +12,7 @@ function reducer(stado, action) {
 		}
 		case 'GET_COUNTRY_BY_NAME': {
 			let list
-			if (stado.countryListRegion !== '') {
+			if ( Array.isArray(stado.countryListRegion) && stado.countryListRegion.length > 0) {
 				list = stado.countryListRegion
 			} else {
 				list = stado.countryList
@@ -20,6 +20,7 @@ function reducer(stado, action) {
 			const getCountry = list.filter(
 				(country) => country.name.includes(action.payload)
 			)
+			console.log(getCountry)
 			return {...stado, countryName: getCountry}
 		}
     default: {
