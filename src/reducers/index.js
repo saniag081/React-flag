@@ -11,7 +11,7 @@ function reducer(stado, action) {
 			return {...stado, countryListRegion: countryListRegion}
 		}
 		case 'GET_COUNTRY_BY_NAME': {
-			let list
+			let list = []
 			if ( Array.isArray(stado.countryListRegion) && stado.countryListRegion.length > 0) {
 				list = stado.countryListRegion
 			} else {
