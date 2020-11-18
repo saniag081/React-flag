@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom'
 
 const CountryStyle = styled.div`
 	width: 264px;
@@ -38,8 +39,13 @@ function Country({
 	region,
 	capital,
 }) {
+	const history = useHistory()
+	function handleDetail() {
+		history.push(`/country/${name}`)
+	}
+
 	return (
-		<CountryStyle>
+		<CountryStyle onClick={handleDetail}>
 			<figure className="image">
 				<img loading="lazy" src={flag} alt={name} />
 			</figure>

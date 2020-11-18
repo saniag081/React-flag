@@ -14,9 +14,6 @@ const FilterStyled = styled.select`
 
 function Region() {
 	const dispatch = useDispatch()
-	const countryListRegion = useSelector((state) => state.countryListRegion)
-	console.log(countryListRegion)
-
 	function handleGetRegion(env){
 		dispatch(getCountryListRegion(env.target.value))
 	}
