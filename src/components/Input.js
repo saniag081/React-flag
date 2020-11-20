@@ -10,6 +10,9 @@ const InputStyled = Styled.label`
 	padding-right: 0;
 	border-radius: 5px;
 	background: #ffF;
+	@media(min-width: 768px){
+		margin: 0;
+	}
 	.header-input{
 		width: 100%;
 		margin-left: .8rem;

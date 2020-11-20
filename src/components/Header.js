@@ -8,6 +8,13 @@ import { useDispatch } from 'react-redux'
 import { getContryByName } from '../actions/index'
 
 const HeaderStyled = styled.header`
+	.header-container{
+		@media(min-width: 768px){
+			display: grid;
+			grid-template-columns: 480px 200px;
+			justify-content: space-between;
+		}
+	}
 `
 
 function Header() {
@@ -20,8 +27,10 @@ function Header() {
 		<HeaderStyled>
 			<DarkMode/>
 			<Wrapper>
-				<Input onChange={handleGetConttryName}/>
-				<FilterByRegion/>
+				<div className="header-container">
+					<Input onChange={handleGetConttryName}/>
+					<FilterByRegion/>
+				</div>
 			</Wrapper>
 		</HeaderStyled>
 	)
