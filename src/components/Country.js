@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
 
 const CountryStyle = styled.div`
+	cursor: pointer;
 	width: 264px;
 	text-align: left;
 	box-shadow: 0 0 7px 2px rgba(0,0,0,.07);
 	border-radius: 5px;
-	overflow: hidden;
 	.image{
 		max-width: 100%;
 		height: 160px;
@@ -16,9 +16,18 @@ const CountryStyle = styled.div`
 	.image img{
 		width: 100%;
 		height: 100%;
+		border-radius: 5px 5px 0 0;
 	}
 	.details{
 		padding: 1.5em;
+		border: 1px solid transparent;
+		border-top: none;
+		transition: .3s border;
+		:hover{
+			border: 1px solid var(--black);
+			border-top: none;
+			border-radius: 0 0 5px 5px;
+		}
 	}
 	.details-titles{
 		margin: 0;
