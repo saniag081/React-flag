@@ -9,10 +9,12 @@ import { getContryByName } from '../actions/index'
 
 const HeaderStyled = styled.header`
 	.header-container{
+		margin-top: 1.5rem;
 		@media(min-width: 768px){
 			display: grid;
 			grid-template-columns: 480px 200px;
 			justify-content: space-between;
+			margin: 2.5rem auto;
 		}
 	}
 `

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
+import slugify from 'slugify'
 
 const CountryStyle = styled.div`
 	cursor: pointer;
@@ -50,7 +51,7 @@ function Country({
 }) {
 	const history = useHistory()
 	function handleDetail() {
-		history.push(`/country/${name}`)
+		history.push(`/country/${slugify(name)}`)
 	}
 
 	return (

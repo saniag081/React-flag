@@ -15,7 +15,7 @@ const DarkModeStyled = styled.div`
 	.title{
 		text-decoration: none;
 		h1{
-			font-size: 14px;
+			font-size: 16px;
 			color: var(--black);
 		}
 	}
