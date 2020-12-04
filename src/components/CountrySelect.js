@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CountrySelectSrtled = styled.div``
+const CountrySelectSrtled = styled.div`
+`
 
 function CountrySelect({
 	flag,
