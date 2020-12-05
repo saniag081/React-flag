@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector ,useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { getCountryListRegion } from '../actions/index';
 
 const FilterStyled = styled.select`
