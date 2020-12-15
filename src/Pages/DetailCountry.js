@@ -21,6 +21,11 @@ const DetailCountryStyled = styled.div`
 		align-items: center;
 		cursor: pointer;
 	}
+	@media(min-width: 767px){
+		.btn{
+			margin-top: 2em;
+		}
+	}
 `
 
 function DetailCountry({ match }) {
@@ -37,7 +42,6 @@ function DetailCountry({ match }) {
 				.then(data => setCountry(data[0]))
 				.catch(error => console.error(error))
 		}
-		console.log(getCountry)
 	}, [getCountry, match.params.name])
 	return (
 		<DetailCountryStyled>

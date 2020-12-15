@@ -5,11 +5,14 @@ const WrapperStyled = styled.div`
 	padding: 0 1rem;
 	max-width:1280px;
 	margin: auto;
+	@media(min-width: 767px){
+		padding: 1em;
+	}
 `
 
-function Wrapper({children}) {
+function Wrapper({children, style}) {
 	return (
-		<WrapperStyled>
+		<WrapperStyled style={style}>
 			{children}
 		</WrapperStyled>
 	)

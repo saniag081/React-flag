@@ -54,17 +54,18 @@ function CountryList() {
 				console.error(err);
 			}
 		})()
-	},[])
+	},[dispatch])
 	return (
 		<Wrapper>
 			<CountryListStyled>
 				{
-					countryList.map(({ flag, name, population, region, capital, numericCode }) => (
+					countryList.map(({ flag, name, population, region, capital, numericCode, nativeName }) => (
 						<Country
 							flag={flag}
 							name={name}
 							population={population}
 							region={region}
+							nativeName={nativeName}
 							capital={capital}
 							key={numericCode}
 						/>
