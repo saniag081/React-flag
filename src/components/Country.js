@@ -48,11 +48,12 @@ function Country({
 	population,
 	region,
 	capital,
-	nativeName
+	cioc,
+	alpha2Code
 }) {
 	const history = useHistory()
 	function handleDetail() {
-		history.push(`/country/${slugify(nativeName)}`)
+		history.push(`/country/${slugify(alpha2Code)}`)
 	}
 
 	return (

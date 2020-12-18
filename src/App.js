@@ -25,7 +25,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/country/:name" component={DetailCountry} />
+          <Route exact path="/country/:id" component={DetailCountry} />
         </Switch>
       </Router>
     </Provider>

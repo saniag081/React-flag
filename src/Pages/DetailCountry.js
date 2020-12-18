@@ -31,18 +31,24 @@ const DetailCountryStyled = styled.div`
 function DetailCountry({ match }) {
 	const storageCountry = useSelector(
 		state => {
-			return state.countryList.find(item => item.name === match.params.name.replace('-',' '))
+			return state.countryList.find((item) => {
+				console.log(match.params.id.replace('-',' '))
+				if (item.alpha2Code === match.params.id.replace(/-/g, ' ')) {
+					return true
+				}
+				return false
+			})
 		}
 	)
 	const [getCountry, setCountry] = useState(storageCountry)
 	useEffect(() => {
 		if (!getCountry) {
-			fetch(`https://restcountries.eu/rest/v2/name/${match.params.name}`)
+			fetch(`https://restcountries.eu/rest/v2/alpha/${match.params.id}`)
 				.then(response => response.json())
-				.then(data => setCountry(data[0]))
+				.then(data => setCountry(data))
 				.catch(error => console.error(error))
 		}
-	}, [getCountry, match.params.name])
+	}, [getCountry, match.params.id])
 	return (
 		<DetailCountryStyled>
 			<DarkMode/>
