@@ -24,6 +24,7 @@ const CountrySelectSrtled = styled.div`
 			width: 100%;
 		}
 		&-item{
+			background-color: var(--color-card);
 			padding: .5em 2em;
 			border-radius: 5px;
 			box-shadow: 0 0 5px rgba(0,0,0,.3);

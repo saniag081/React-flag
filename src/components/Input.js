@@ -9,9 +9,13 @@ const InputStyled = Styled.label`
 	margin-bottom: 40px;
 	padding-right: 0;
 	border-radius: 5px;
-	background: #ffF;
+	/* background: #ffF; */
+	background: var(--color-card);
 	@media(min-width: 768px){
 		margin: 0;
+	}
+	svg{
+		fill: var(--color-text);
 	}
 	.header-input{
 		width: 100%;
@@ -21,8 +25,10 @@ const InputStyled = Styled.label`
 		padding: 0 2em;
 		border: none;
 		outline: 0;
+		border: none;
+		background: var(--color-card);
 		&::-webkit-input-placeholder {
-			color: #c4c4c4;
+			color: var(--color-text);
 	}
 }
 `;

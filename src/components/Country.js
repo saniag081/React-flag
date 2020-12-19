@@ -8,6 +8,8 @@ const CountryStyle = styled.div`
 	width: 264px;
 	text-align: left;
 	box-shadow: 0 0 7px 2px rgba(0,0,0,.07);
+	background-color: var(--color-card);
+	color: var(--color-text);
 	border-radius: 5px;
 	.image{
 		max-width: 100%;
@@ -48,7 +50,6 @@ function Country({
 	population,
 	region,
 	capital,
-	cioc,
 	alpha2Code
 }) {
 	const history = useHistory()

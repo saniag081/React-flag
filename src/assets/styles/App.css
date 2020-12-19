@@ -5,13 +5,45 @@ html{
   --black: #111517;
   --white: white;
   --background:#fafafa;
+  --color-card: white;
+  --color-header: white;
+  --color-text: black;
 }
 body{
   background-color: var(--background);
   font-family: 'Nunito Sans', sans-serif;
-  color: --black;
+  color: var(--color-text);
 }
 
 .App {
   text-align: center;
+}
+
+.is-dark-mode{
+    --background:#1d2029;
+    --white: black;
+    --black: white;
+    --color-card:#253b43;
+    --color-header: #253b43;
+    --color-text: #8088ad;
+}
+
+.default-dark-mode{
+  --black: #111517;
+  --white: white;
+  --background:#fafafa;
+  --color-card: white;
+  --color-header: white;
+  --color-text: black;
+}
+
+@media(prefers-color-scheme: dark){
+  :root{
+    --background:#1d2029;
+    --white: black;
+    --black: white;
+    --color-card:#253b43;
+    --color-header: #253b43;
+    --color-text: #8088ad;
+  }
 }

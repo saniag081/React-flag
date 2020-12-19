@@ -10,16 +10,19 @@ const DetailCountryStyled = styled.div`
 	.btn{
 		max-width: 100px;
 		margin: 1rem 0;
-	}
-	.btn-back{
-		background: var(--white);
-		box-shadow: 0 0 5px rgba(0,0,0,.3);
-		padding: .5em 2.2em;
-		border-radius: 5px;
-		display: flex;
-    justify-content: center;
-		align-items: center;
-		cursor: pointer;
+		svg{
+			fill: var(--color-text);
+		}
+		&-back{
+			background: var(--color-card);
+			box-shadow: 0 0 5px rgba(0,0,0,.3);
+			padding: .5em 2.2em;
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
 	}
 	@media(min-width: 767px){
 		.btn{

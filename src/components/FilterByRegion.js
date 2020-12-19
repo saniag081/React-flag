@@ -10,6 +10,8 @@ const FilterStyled = styled.select`
 	border-radius: 5px;
 	box-shadow: 0 2px 9px 0 rgba(0,0,0,.08);
 	width: 100%;
+	color: var(--color-text);
+	background-color: var(--color-card);
 `
 
 function Region() {
